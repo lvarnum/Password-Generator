@@ -17,8 +17,8 @@ function generatePassword() {
   }
   var characters = prompt("What characters would you like included in your password? (Lowercase, uppercase, numeric, special characters)");
   characters = characters.toLowerCase();
-  while (characters === "" || (characters !== "uppercase" && characters !== "lowercase" && characters !== "numeric" && characters !== "special characters")) {
-    characters = prompt("Must choose at least one valid character type.");
+  while (characters === "") {
+    characters = prompt("Must choose at least one character type.");
   }
   characters = characters.split(", ");
 
