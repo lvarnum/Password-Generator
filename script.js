@@ -15,12 +15,28 @@ function generatePassword() {
   while (parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128 || isNaN(passwordLength)) {
     passwordLength = prompt("Length must be a number between 8 and 128 characters.");
   }
-  var characters = prompt("What characters would you like included in your password? (Lowercase, uppercase, numeric, special characters)");
-  characters = characters.toLowerCase();
-  while (characters === "") {
-    characters = prompt("Must choose at least one character type.");
+  var characters = [];
+  while (characters.length === 0) {
+    var lower = confirm("Would you like lowercase characters?");
+    if (lower) {
+      characters.push("lowercase");
+    }
+    var upper = confirm("Would you like uppercase characters?");
+    if (upper) {
+      characters.push("uppercase");
+    }
+    var num = confirm("Would you like numeric characters?");
+    if (num) {
+      characters.push("numeric");
+    }
+    var special = confirm("would you like special characters?");
+    if (special) {
+      characters.push("special characters");
+    }
+    if (characters.length === 0) {
+      alert("Must choose at least one character type.");
+    }
   }
-  characters = characters.split(", ");
 
   var letters = "abcdefghijklmnopqrstuvwxyz";
   var special = "!@#$%^&*()_-+=/\'?:,{}[]~.";
